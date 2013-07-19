@@ -20,8 +20,9 @@
     .f5{width: 200px; height: 40px; background: #6699FF; color: #ffffff; cursor: pointer; border: 1px; }
 </style>
 </head>
-<?php require_once 'class/Usuario.php';
-$userid=new Usuario();
+<?php
+ require_once 'class/Persona.php';
+ $userid=new Persona();
 if(!$_SESSION['USERINPUT'])
 {
 session_start();
@@ -32,16 +33,16 @@ require_once 'includes/header.php';
 ?>
 <body>
 <center>
-<div style="width: 95%; text-align: justify">
+<div style="width: 75%; text-align: justify">
 <a class="f5" href="javascript:location.reload()">ACTUALIZAR LISTA</a>
 <center>
         <table id='listadocentes' name='listadocentes' class="table table-hover">
             <thead>
                 <tr class="gradeU">
-<!--                    <th><center>C&Oacute;DIGO</center></th>-->
+                    <th style="width: 5%;"><center>CODIGO</center></th>
                     <th><center>USUARIO</center></th>
-                    <th>DESCRIPCI&Oacute;N</th>
-                    <th>FECHA INGRESO (a&ntilde;o/ mes/ d&iacute;a)</th>
+                    <th><center>DESCRIPCION</center></th>
+                    <th>FECHA Y HORA(a&ntilde;o/ mes/ d&iacute;a)</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,6 +54,7 @@ require_once 'includes/header.php';
                             <td> $row1[0] </td>
                             <td> $row1[1] </td>
                             <td> $row1[2] </td>
+                            <td> $row1[3] </td>
                         </tr>
                         ";
                 }
@@ -61,9 +63,10 @@ require_once 'includes/header.php';
             <tfoot>
             <tr>
 <!--                    <th><center>C&Oacute;DIGO</center></th>-->
+                    <th style="width: 5%;"><center>CODIGO</center></th>
                     <th><center>USUARIO</center></th>
-                    <th>DESCRIPCI&Oacute;N</th>
-                    <th>FECHA INGRESO (a&ntilde;o/ mes/ d&iacute;a)</th>
+                    <th><center>DESCRIPCION</center></th>
+                    <th>FECHA Y HORA(a&ntilde;o/ mes/ d&iacute;a)</th>
             </tr>
             </tfoot>
         </table>

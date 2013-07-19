@@ -26,19 +26,8 @@ header('location: index.php');
 ?>
 <body>
 <center>
-<header>
-    <div class="circle"><div class="face"><div id="hour"></div><div id="minute"></div><div id="second"></div></div></div>
-    <div class="title">
-		<div class="title-inset">
-                <h1>Moment.js<span>2.1.0</span></h1>
-                <h2>
-		A  javascript date library for parsing, validating, manipulating, and formatting dates.
-                <pre id="js-format"></pre>
-                </h2>
-		</div>
-    </div>
-</header>
 <div id="lista"></div>
+<div id="lista2"></div>
 
 </center>
         <?php

@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,29 +17,35 @@
 </style>
 </head>
 <?php 
-require_once 'class/Usuario.php';
 require_once 'class/Validador.php';
+require_once 'class/Persona.php';
 
 if(!$_SESSION['USERINPUT'])
 {
     if(isset($_POST['login']))
     {
         $user=$_REQUEST["usuario"];$contra=$_REQUEST["contrasena"];#variables
-        $usuariocall= new Usuario();
+        $usuariocall= new Persona();
         
         if($usuariocall->Validar($user, $contra)>0){
                     $_SESSION['USERINPUT']=$usuariocall;
                     $_SESSION['codigo']=$usuariocall->getCODIGO();
+                    $_SESSION['paterno']=$usuariocall->getPATERNO();
+                    $_SESSION['materno']=$usuariocall->getMATERNO();
+                    $_SESSION['nombres']=$usuariocall->getNOMBRES();
+                    $_SESSION['dni']=$usuariocall->getDNI();
+                    $_SESSION['sexo']=$usuariocall->getSEXO();
+                    $_SESSION['email']=$usuariocall->getEMAIL();
+                    $_SESSION['inicio']=$usuariocall->getINICIO();
+                    $_SESSION['fin']==$usuariocall->getFIN();
                     $_SESSION['USER']=$usuariocall->getUSUARIO();
                     $_SESSION['CONTR']=$usuariocall->getCONTRASENA();
-                    $_SESSION['PERFIL']=$usuariocall->getIDPERFIL();
-                    $_SESSION['ESTADO']=$usuariocall->getESTADO();
-                    $_SESSION['IDPERSON']=$usuariocall->getIDPERSONA();
                     $_SESSION['NIVEL']=$usuariocall->getNIVEL();
-                    $_SESSION['INSCRPN']=$usuariocall->getINSCRIPCION();
+                    $_SESSION['ESTADO']=$usuariocall->getESTADO();
                     $_SESSION['ENDSESSION']=$usuariocall->getULTIMASESION();                 
-                    $users=$_SESSION['USER'];
+                    $users=$_SESSION['codigo'];
                     $usuariocall->SESIONBEGIN($users);
+                    $usuariocall->INPUT($users);
             header("location:index.php");
         }
         else
